@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.png" type="image/png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Dumpster and dump trailer rentals across Central Iowa. Fast delivery for roofing, construction, garage cleanouts, and demolition work." />
+    <title>Central Iowa Roll Offs | Dumpster &amp; Dump Trailer Rentals</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <!-- Netlify Forms bot detection — must match React form fields exactly -->
+    <form name="rental-quote" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <select name="service"></select>
+      <select name="project-type"></select>
+      <input type="date" name="delivery-date" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function(user) {
+          if (!user) {
+            window.netlifyIdentity.on('login', function() {
+              document.location.href = '/admin/'
+            })
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

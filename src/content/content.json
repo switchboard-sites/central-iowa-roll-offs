@@ -1,0 +1,77 @@
+{
+  "site": {
+    "businessName": "Central Iowa Roll Offs",
+    "tagline": "Dumpster & Dump Trailer Rentals",
+    "phone": "(515) 230-7250",
+    "phoneHref": "tel:+15152307250",
+    "email": "info@centraliowarolloffs.com",
+    "hours": "Mon–Fri, 8am–5pm",
+    "siteUrl": "https://dumpster-roller-off.netlify.app"
+  },
+  "hero": {
+    "badge": "Serving Central Iowa",
+    "headline": "Dumpster & Dump Trailer Rentals",
+    "headlineAccent": "Across Central Iowa",
+    "sub": "Fast delivery for roofing projects, construction debris, garage cleanouts, landscaping projects, and demolition work."
+  },
+  "services": [
+    {
+      "title": "Roll Off Dumpster Rentals",
+      "desc": "Open-top dumpsters delivered to your site — perfect for large-scale cleanouts, roofing tear-offs, remodels, and construction debris.",
+      "features": [
+        "Multiple sizes available",
+        "Flat-rate, all-inclusive pricing",
+        "Fast next-day delivery",
+        "Flexible rental periods",
+        "Residential & commercial"
+      ]
+    },
+    {
+      "title": "Dump Trailer Rentals",
+      "desc": "Easy-loading dump trailers for medium-sized projects — ideal for yard waste, landscaping debris, and smaller cleanouts.",
+      "features": [
+        "Low side height for easy loading",
+        "Great for yard waste & brush",
+        "Shorter rental periods available",
+        "Local delivery & pickup",
+        "No hidden fees"
+      ]
+    }
+  ],
+  "howItWorks": [
+    {
+      "title": "Choose a Container",
+      "desc": "Tell us what you need — we'll help you pick the right size for your project."
+    },
+    {
+      "title": "Schedule Delivery",
+      "desc": "Pick a date and we'll drop it right where you need it."
+    },
+    {
+      "title": "Fill It Up",
+      "desc": "Load your debris, junk, or waste at your own pace during the rental period."
+    },
+    {
+      "title": "We Haul It Away",
+      "desc": "When you're done, call us and we'll pick it up and handle proper disposal."
+    }
+  ],
+  "whyUs": [
+    {
+      "title": "Fast Delivery",
+      "desc": "Same-day and next-day delivery available throughout Central Iowa."
+    },
+    {
+      "title": "Local Company",
+      "desc": "Locally owned and operated — we know Central Iowa and treat customers like neighbors."
+    },
+    {
+      "title": "Flexible Rentals",
+      "desc": "Rental periods that work with your schedule — not the other way around."
+    },
+    {
+      "title": "Easy Online Ordering",
+      "desc": "Request your rental online anytime, day or night — no phone call required."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/photos
+public_folder: /photos
+
+collections:
+  - name: content
+    label: Site Content
+    files:
+      - label: All Content
+        name: all
+        file: src/content/content.json
+        fields:
+          - label: Site Info
+            name: site
+            widget: object
+            summary: "{{fields.businessName}} — {{fields.phone}}"
+            fields:
+              - { label: Business Name, name: businessName, widget: string }
+              - { label: "Phone (display, e.g. (515) 230-7250)", name: phone, widget: string }
+              - { label: "Phone link (e.g. tel:+15152307250)", name: phoneHref, widget: string }
+              - { label: Email, name: email, widget: string }
+              - { label: "Hours (e.g. Mon–Fri, 8am–5pm)", name: hours, widget: string }
+              - { label: Site URL (update when domain is connected), name: siteUrl, widget: string }
+
+          - label: Hero Section
+            name: hero
+            widget: object
+            fields:
+              - { label: Badge Text, name: badge, widget: string }
+              - { label: Headline, name: headline, widget: string }
+              - { label: "Headline Accent (yellow text)", name: headlineAccent, widget: string }
+              - { label: Sub-headline, name: sub, widget: text }
+
+          - label: Services
+            name: services
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: desc, widget: text }
+              - label: Features (bullet points)
+                name: features
+                widget: list
+
+          - label: How It Works Steps
+            name: howItWorks
+            widget: list
+            fields:
+              - { label: Step Title, name: title, widget: string }
+              - { label: Step Description, name: desc, widget: text }
+
+          - label: Why Choose Us
+            name: whyUs
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: desc, widget: text }
