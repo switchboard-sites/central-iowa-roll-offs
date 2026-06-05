@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
+import { tinaField } from 'tinacms/dist/react'
 import SEO from '../components/SEO'
-import { PHONE_DISPLAY, PHONE_HREF, EMAIL_DISPLAY, EMAIL_HREF, HOURS } from '../config'
 import QuoteForm from '../components/QuoteForm'
+import { useContent } from '../context/ContentContext'
 
 function PhoneIcon() {
   return (
@@ -32,23 +33,23 @@ function ClockIcon() {
 
 export default function Contact() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
+  const { site, contactPage } = useContent()
 
   return (
     <>
       <SEO
         title="Request a Quote"
-        description={`Request a dumpster or dump trailer rental quote from Central Iowa Roll Offs. Call ${PHONE_DISPLAY} or fill out our online form. Serving Des Moines and Central Iowa.`}
+        description={`Request a dumpster or dump trailer rental quote from Central Iowa Roll Offs. Call ${site.phone} or fill out our online form. Serving Des Moines and Central Iowa.`}
         path="/contact"
       />
 
       <section className="page-hero">
         <div className="container">
-          <span className="page-hero__label">Get in Touch</span>
-          <h1>Request a Quote</h1>
-          <p>
-            Fill out the form below and we&apos;ll get back to you within one business day.
-            Prefer to talk? Call us directly.
-          </p>
+          <span className="page-hero__label" data-tina-field={tinaField(contactPage, 'heroLabel')}>
+            {contactPage.heroLabel}
+          </span>
+          <h1 data-tina-field={tinaField(contactPage, 'heroTitle')}>{contactPage.heroTitle}</h1>
+          <p data-tina-field={tinaField(contactPage, 'heroText')}>{contactPage.heroText}</p>
         </div>
       </section>
 
@@ -63,9 +64,11 @@ export default function Contact() {
                   <div>
                     <p className="contact-info-item__label">Phone / Text</p>
                     <div className="contact-info-item__value">
-                      <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>
+                      <a href={site.phoneHref} data-tina-field={tinaField(site, 'phone')}>{site.phone}</a>
                     </div>
-                    <p className="contact-info-item__note">Call or text to reserve or get a quote</p>
+                    <p className="contact-info-item__note" data-tina-field={tinaField(contactPage, 'phoneNote')}>
+                      {contactPage.phoneNote}
+                    </p>
                   </div>
                 </div>
 
@@ -74,9 +77,11 @@ export default function Contact() {
                   <div>
                     <p className="contact-info-item__label">Email</p>
                     <div className="contact-info-item__value">
-                      <a href={EMAIL_HREF}>{EMAIL_DISPLAY}</a>
+                      <a href={`mailto:${site.email}`} data-tina-field={tinaField(site, 'email')}>{site.email}</a>
                     </div>
-                    <p className="contact-info-item__note">We respond within one business day</p>
+                    <p className="contact-info-item__note" data-tina-field={tinaField(contactPage, 'emailResponseNote')}>
+                      {contactPage.emailResponseNote}
+                    </p>
                   </div>
                 </div>
 
@@ -84,10 +89,12 @@ export default function Contact() {
                   <div className="contact-info-item__icon"><ClockIcon /></div>
                   <div>
                     <p className="contact-info-item__label">Hours</p>
-                    <div className="contact-info-item__value" style={{ fontSize: '1.1rem' }}>
-                      {HOURS}
+                    <div className="contact-info-item__value" style={{ fontSize: '1.1rem' }} data-tina-field={tinaField(site, 'hours')}>
+                      {site.hours}
                     </div>
-                    <p className="contact-info-item__note">Online scheduling available 24/7</p>
+                    <p className="contact-info-item__note" data-tina-field={tinaField(contactPage, 'hoursNote')}>
+                      {contactPage.hoursNote}
+                    </p>
                   </div>
                 </div>
               </div>

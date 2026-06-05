@@ -1,4 +1,5 @@
-import { PHONE_DISPLAY, PHONE_HREF, EMAIL_DISPLAY, EMAIL_HREF, HOURS } from '../config'
+import { tinaField } from 'tinacms/dist/react'
+import { useContent } from '../context/ContentContext'
 
 function PhoneIcon() {
   return (
@@ -18,35 +19,37 @@ function EmailIcon() {
 }
 
 export default function ContactHighlight() {
+  const { site, contactHighlight } = useContent()
+
   return (
     <section className="section contact-highlight" aria-labelledby="contact-heading">
       <div className="container">
-        <h2 id="contact-heading">Ready to Get Started?</h2>
-        <p>Call us or send an email — we&apos;ll get you set up fast.</p>
+        <h2 id="contact-heading" data-tina-field={tinaField(contactHighlight, 'headline')}>
+          {contactHighlight.headline}
+        </h2>
+        <p data-tina-field={tinaField(contactHighlight, 'sub')}>{contactHighlight.sub}</p>
 
         <div className="contact-options">
           <div className="contact-option">
-            <div className="contact-option__icon">
-              <PhoneIcon />
-            </div>
+            <div className="contact-option__icon"><PhoneIcon /></div>
             <p className="contact-option__label">Call or Text</p>
-            <a href={PHONE_HREF} className="contact-option__value">
-              {PHONE_DISPLAY}
+            <a href={site.phoneHref} className="contact-option__value" data-tina-field={tinaField(site, 'phone')}>
+              {site.phone}
             </a>
-            <p className="contact-option__note">{HOURS}</p>
+            <p className="contact-option__note" data-tina-field={tinaField(site, 'hours')}>{site.hours}</p>
           </div>
 
           <div className="contact-divider" aria-hidden="true" />
 
           <div className="contact-option">
-            <div className="contact-option__icon">
-              <EmailIcon />
-            </div>
+            <div className="contact-option__icon"><EmailIcon /></div>
             <p className="contact-option__label">Email Us</p>
-            <a href={EMAIL_HREF} className="contact-option__value">
-              {EMAIL_DISPLAY}
+            <a href={`mailto:${site.email}`} className="contact-option__value" data-tina-field={tinaField(site, 'email')}>
+              {site.email}
             </a>
-            <p className="contact-option__note">We respond within 24 hours</p>
+            <p className="contact-option__note" data-tina-field={tinaField(contactHighlight, 'emailResponseNote')}>
+              {contactHighlight.emailResponseNote}
+            </p>
           </div>
         </div>
       </div>

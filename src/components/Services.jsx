@@ -1,4 +1,5 @@
 import { tinaField } from 'tinacms/dist/react'
+import { useContent } from '../context/ContentContext'
 
 const PHOTOS = [
   { src: '/photos/roll-off-dumpsters.jpeg', alt: 'Two black roll-off dumpsters ready for delivery', objectPosition: 'center 35%' },
@@ -29,7 +30,9 @@ function ServiceCard({ service, photo, alt, objectPosition, phoneHref }) {
   )
 }
 
-export default function Services({ services, phoneHref }) {
+export default function Services() {
+  const { site, services } = useContent()
+
   return (
     <section className="section" id="services" aria-labelledby="services-heading">
       <div className="container">
@@ -47,7 +50,7 @@ export default function Services({ services, phoneHref }) {
               photo={PHOTOS[i]?.src}
               alt={PHOTOS[i]?.alt}
               objectPosition={PHOTOS[i]?.objectPosition}
-              phoneHref={phoneHref}
+              phoneHref={site.phoneHref}
             />
           ))}
         </div>

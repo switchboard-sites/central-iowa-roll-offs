@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import { tinaField } from 'tinacms/dist/react'
+import { useContent } from '../context/ContentContext'
 
-export default function Hero({ hero, phoneDisplay, phoneHref }) {
+export default function Hero() {
+  const { site, hero } = useContent()
+
   return (
     <section className="hero">
       <div className="container">
@@ -24,8 +27,8 @@ export default function Hero({ hero, phoneDisplay, phoneHref }) {
           </p>
 
           <div className="hero__ctas">
-            <a href={phoneHref} className="btn btn--primary btn--lg">
-              Call Now — {phoneDisplay}
+            <a href={site.phoneHref} className="btn btn--primary btn--lg">
+              Call Now — {site.phone}
             </a>
             <Link to="/contact" className="btn btn--outline-white btn--lg">
               Request a Quote

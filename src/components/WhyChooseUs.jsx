@@ -1,4 +1,5 @@
 import { tinaField } from 'tinacms/dist/react'
+import { useContent } from '../context/ContentContext'
 
 const ICONS = [
   <svg key="delivery" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -24,7 +25,9 @@ const ICONS = [
   </svg>,
 ]
 
-export default function WhyChooseUs({ whyUs }) {
+export default function WhyChooseUs() {
+  const { whyUs } = useContent()
+
   return (
     <section className="section" id="why-us" aria-labelledby="why-heading">
       <div className="container">

@@ -1,89 +1,27 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { tinaField } from 'tinacms/dist/react'
 import SEO from '../components/SEO'
-import { PHONE_DISPLAY, PHONE_HREF } from '../config'
-
-const REGIONS = [
-  {
-    name: 'Polk County / Des Moines Metro',
-    cities: [
-      'Des Moines', 'Ankeny', 'Urbandale', 'West Des Moines',
-      'Johnston', 'Grimes', 'Altoona', 'Bondurant',
-      'Clive', 'Windsor Heights', 'Pleasant Hill',
-      'Mitchellville', 'Polk City', 'Elkhart', 'Runnells',
-    ],
-  },
-  {
-    name: 'Warren County',
-    cities: [
-      'Indianola', 'Norwalk', 'Carlisle', 'Pleasantville',
-      'Knoxville', 'Cumming', 'Martensdale', 'Milo',
-    ],
-  },
-  {
-    name: 'Dallas County',
-    cities: [
-      'Waukee', 'Adel', 'Perry', 'Woodward',
-      'Minburn', 'Linden', 'De Soto', 'Van Meter',
-    ],
-  },
-  {
-    name: 'Story County',
-    cities: [
-      'Ames', 'Huxley', 'Nevada', 'Cambridge',
-      'Story City', 'Roland', 'Slater', 'Maxwell',
-    ],
-  },
-  {
-    name: 'Boone County',
-    cities: [
-      'Boone', 'Madrid', 'Ogden', 'Booneville',
-      'Beaver', 'Luther', 'Berkley', 'Fraser',
-    ],
-  },
-  {
-    name: 'Madison County',
-    cities: [
-      'Winterset', 'Earlham', 'Macksburg', 'Patterson',
-      'St. Charles', 'Bevington', 'Truro', 'East Peru',
-    ],
-  },
-  {
-    name: 'Jasper County',
-    cities: [
-      'Newton', 'Colfax', 'Baxter', 'Kellogg',
-      'Monroe', 'Prairie City', 'Sully', 'Reasnor',
-    ],
-  },
-  {
-    name: 'Marshall County',
-    cities: [
-      'Marshalltown', 'Albion', 'Conrad', 'Gilman',
-      'Haverhill', 'Liscomb', 'Melbourne', 'State Center',
-    ],
-  },
-]
+import { useContent } from '../context/ContentContext'
 
 export default function ServiceArea() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
+  const { site, serviceAreaPage } = useContent()
 
   return (
     <>
       <SEO
         title="Service Area"
-        description={`Central Iowa Roll Offs delivers dumpsters and dump trailers throughout Des Moines, Ankeny, Ames, Waukee, and surrounding Central Iowa communities. Call ${PHONE_DISPLAY}.`}
+        description={`Central Iowa Roll Offs delivers dumpsters and dump trailers throughout Des Moines, Ankeny, Ames, Waukee, and surrounding Central Iowa communities. Call ${site.phone}.`}
         path="/service-area"
       />
 
       <section className="page-hero">
         <div className="container">
-          <span className="page-hero__label">Where We Deliver</span>
-          <h1>Service Area</h1>
-          <p>
-            We deliver dumpsters and dump trailers throughout the Des Moines metro and
-            surrounding Central Iowa counties. Need delivery outside these areas?
-            Call us — we&apos;ll do our best to accommodate you.
-          </p>
+          <span className="page-hero__label" data-tina-field={tinaField(serviceAreaPage, 'heroLabel')}>
+            {serviceAreaPage.heroLabel}
+          </span>
+          <h1 data-tina-field={tinaField(serviceAreaPage, 'heroTitle')}>{serviceAreaPage.heroTitle}</h1>
+          <p data-tina-field={tinaField(serviceAreaPage, 'heroText')}>{serviceAreaPage.heroText}</p>
         </div>
       </section>
 
@@ -104,10 +42,10 @@ export default function ServiceArea() {
           <h2>Cities &amp; Communities We Serve</h2>
 
           <div>
-            {REGIONS.map((region) => (
+            {serviceAreaPage.regions.map((region) => (
               <div className="cities-region" key={region.name}>
-                <h3>{region.name}</h3>
-                <ul className="cities-list">
+                <h3 data-tina-field={tinaField(region, 'name')}>{region.name}</h3>
+                <ul className="cities-list" data-tina-field={tinaField(region, 'cities')}>
                   {region.cities.map((city) => (
                     <li key={city}>{city}</li>
                   ))}
@@ -117,13 +55,14 @@ export default function ServiceArea() {
           </div>
 
           <div style={{ marginTop: '3rem', padding: '2rem', background: '#f5f5f5', borderRadius: '4px', borderLeft: '4px solid #f5a623' }}>
-            <h3 style={{ marginBottom: '0.5rem', fontSize: '1rem' }}>Don&apos;t see your city?</h3>
-            <p style={{ marginBottom: '1rem', color: '#555' }}>
-              Our service area continues to grow. If you&apos;re in Central Iowa and don&apos;t
-              see your community listed, give us a call — we may still be able to deliver to you.
+            <h3 style={{ marginBottom: '0.5rem', fontSize: '1rem' }} data-tina-field={tinaField(serviceAreaPage, 'calloutTitle')}>
+              {serviceAreaPage.calloutTitle}
+            </h3>
+            <p style={{ marginBottom: '1rem', color: '#555' }} data-tina-field={tinaField(serviceAreaPage, 'calloutText')}>
+              {serviceAreaPage.calloutText}
             </p>
-            <a href={PHONE_HREF} className="btn btn--primary">
-              Call {PHONE_DISPLAY}
+            <a href={site.phoneHref} className="btn btn--primary">
+              Call {site.phone}
             </a>
           </div>
         </div>

@@ -1,11 +1,20 @@
+import { tinaField } from 'tinacms/dist/react'
+import { useContent } from '../context/ContentContext'
+
 export default function OrderOnline() {
+  const { orderOnline } = useContent()
+
   return (
     <section className="section order-online" id="order" aria-labelledby="order-heading">
       <div className="container">
-        <span className="section-label">Book Your Rental</span>
-        <h2 className="section-title" id="order-heading">Order Online</h2>
-        <p className="section-subtitle">
-          Reserve your dumpster or dump trailer online — quick and easy, any time of day.
+        <span className="section-label" data-tina-field={tinaField(orderOnline, 'label')}>
+          {orderOnline.label}
+        </span>
+        <h2 className="section-title" id="order-heading" data-tina-field={tinaField(orderOnline, 'title')}>
+          {orderOnline.title}
+        </h2>
+        <p className="section-subtitle" data-tina-field={tinaField(orderOnline, 'sub')}>
+          {orderOnline.sub}
         </p>
 
         <div className="order-online__embed">
@@ -18,11 +27,8 @@ export default function OrderOnline() {
             <line x1="30" y1="27" x2="40" y2="27" stroke="#888" strokeWidth="1.5" strokeLinecap="round"/>
             <line x1="30" y1="31" x2="38" y2="31" stroke="#888" strokeWidth="1.5" strokeLinecap="round"/>
           </svg>
-          <h3>Booking Form Coming Soon</h3>
-          <p>
-            An online booking form or scheduling tool will be embedded here.
-            For now, please call us or use the contact form to request a rental.
-          </p>
+          <h3 data-tina-field={tinaField(orderOnline, 'placeholderTitle')}>{orderOnline.placeholderTitle}</h3>
+          <p data-tina-field={tinaField(orderOnline, 'placeholderText')}>{orderOnline.placeholderText}</p>
         </div>
       </div>
     </section>

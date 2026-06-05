@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { PHONE_DISPLAY, PHONE_HREF } from '../config'
+import { tinaField } from 'tinacms/dist/react'
+import { useContent } from '../context/ContentContext'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const { site } = useContent()
 
   return (
     <header className="header">
@@ -17,8 +19,8 @@ export default function Header() {
             height="52"
           />
           <div className="header__logo-text">
-            <strong>Central Iowa Roll Offs</strong>
-            <span>Dumpster &amp; Trailer Rentals</span>
+            <strong data-tina-field={tinaField(site, 'businessName')}>{site.businessName}</strong>
+            <span data-tina-field={tinaField(site, 'tagline')}>{site.tagline}</span>
           </div>
         </Link>
 
@@ -29,11 +31,11 @@ export default function Header() {
         </nav>
 
         <div className="header__right">
-          <a href={PHONE_HREF} className="header__call" aria-label={`Call us at ${PHONE_DISPLAY}`}>
+          <a href={site.phoneHref} className="header__call" aria-label={`Call us at ${site.phone}`}>
             <span className="header__call-label">Call Us Now</span>
-            <span className="header__call-number">{PHONE_DISPLAY}</span>
+            <span className="header__call-number" data-tina-field={tinaField(site, 'phone')}>{site.phone}</span>
           </a>
-          <a href={PHONE_HREF} className="btn btn--primary header__call-btn">
+          <a href={site.phoneHref} className="btn btn--primary header__call-btn">
             Call Now
           </a>
           <button
@@ -54,8 +56,8 @@ export default function Header() {
           <NavLink to="/" end onClick={() => setOpen(false)}>Home</NavLink>
           <NavLink to="/service-area" onClick={() => setOpen(false)}>Service Area</NavLink>
           <NavLink to="/contact" onClick={() => setOpen(false)}>Contact</NavLink>
-          <a href={PHONE_HREF} className="btn btn--primary" onClick={() => setOpen(false)}>
-            Call Now — {PHONE_DISPLAY}
+          <a href={site.phoneHref} className="btn btn--primary" onClick={() => setOpen(false)}>
+            Call Now — {site.phone}
           </a>
         </nav>
       )}

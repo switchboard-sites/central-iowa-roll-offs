@@ -73,5 +73,80 @@
       "title": "Easy Online Ordering",
       "desc": "Request your rental online anytime, day or night — no phone call required."
     }
-  ]
+  ],
+  "serviceAreaHighlight": {
+    "subtitle": "We deliver throughout the Des Moines metro and surrounding Central Iowa communities. Don't see your city? Give us a call — we may still be able to help.",
+    "cities": [
+      "Des Moines", "Ankeny", "Urbandale", "West Des Moines",
+      "Waukee", "Johnston", "Grimes", "Altoona",
+      "Bondurant", "Clive", "Norwalk", "Carlisle",
+      "Indianola", "Newton", "Ames", "Boone",
+      "Marshalltown", "Adel", "Perry", "Winterset",
+      "Pella", "Knoxville", "Pleasantville", "Huxley"
+    ]
+  },
+  "serviceAreaPage": {
+    "heroLabel": "Where We Deliver",
+    "heroTitle": "Service Area",
+    "heroText": "We deliver dumpsters and dump trailers throughout the Des Moines metro and surrounding Central Iowa counties. Need delivery outside these areas? Call us — we'll do our best to accommodate you.",
+    "regions": [
+      {
+        "name": "Polk County / Des Moines Metro",
+        "cities": ["Des Moines", "Ankeny", "Urbandale", "West Des Moines", "Johnston", "Grimes", "Altoona", "Bondurant", "Clive", "Windsor Heights", "Pleasant Hill", "Mitchellville", "Polk City", "Elkhart", "Runnells"]
+      },
+      {
+        "name": "Warren County",
+        "cities": ["Indianola", "Norwalk", "Carlisle", "Pleasantville", "Knoxville", "Cumming", "Martensdale", "Milo"]
+      },
+      {
+        "name": "Dallas County",
+        "cities": ["Waukee", "Adel", "Perry", "Woodward", "Minburn", "Linden", "De Soto", "Van Meter"]
+      },
+      {
+        "name": "Story County",
+        "cities": ["Ames", "Huxley", "Nevada", "Cambridge", "Story City", "Roland", "Slater", "Maxwell"]
+      },
+      {
+        "name": "Boone County",
+        "cities": ["Boone", "Madrid", "Ogden", "Booneville", "Beaver", "Luther", "Berkley", "Fraser"]
+      },
+      {
+        "name": "Madison County",
+        "cities": ["Winterset", "Earlham", "Macksburg", "Patterson", "St. Charles", "Bevington", "Truro", "East Peru"]
+      },
+      {
+        "name": "Jasper County",
+        "cities": ["Newton", "Colfax", "Baxter", "Kellogg", "Monroe", "Prairie City", "Sully", "Reasnor"]
+      },
+      {
+        "name": "Marshall County",
+        "cities": ["Marshalltown", "Albion", "Conrad", "Gilman", "Haverhill", "Liscomb", "Melbourne", "State Center"]
+      }
+    ],
+    "calloutTitle": "Don't see your city?",
+    "calloutText": "Our service area continues to grow. If you're in Central Iowa and don't see your community listed, give us a call — we may still be able to deliver to you."
+  },
+  "contactHighlight": {
+    "headline": "Ready to Get Started?",
+    "sub": "Call us or send an email — we'll get you set up fast.",
+    "emailResponseNote": "We respond within 24 hours"
+  },
+  "orderOnline": {
+    "label": "Book Your Rental",
+    "title": "Order Online",
+    "sub": "Reserve your dumpster or dump trailer online — quick and easy, any time of day.",
+    "placeholderTitle": "Booking Form Coming Soon",
+    "placeholderText": "An online booking form or scheduling tool will be embedded here. For now, please call us or use the contact form to request a rental."
+  },
+  "contactPage": {
+    "heroLabel": "Get in Touch",
+    "heroTitle": "Request a Quote",
+    "heroText": "Fill out the form below and we'll get back to you within one business day. Prefer to talk? Call us directly.",
+    "phoneNote": "Call or text to reserve or get a quote",
+    "emailResponseNote": "We respond within one business day",
+    "hoursNote": "Online scheduling available 24/7"
+  },
+  "footer": {
+    "brandDesc": "Locally owned and operated dumpster and dump trailer rental company serving Des Moines and the surrounding Central Iowa communities."
+  }
 }

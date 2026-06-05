@@ -1,4 +1,3 @@
-import { useTina } from 'tinacms/dist/react'
 import SEO from '../components/SEO'
 import Hero from '../components/Hero'
 import Services from '../components/Services'
@@ -7,18 +6,8 @@ import WhyChooseUs from '../components/WhyChooseUs'
 import ServiceAreaHighlight from '../components/ServiceAreaHighlight'
 import OrderOnline from '../components/OrderOnline'
 import ContactHighlight from '../components/ContactHighlight'
+import { useContent } from '../context/ContentContext'
 import { EMAIL_DISPLAY, SITE_URL } from '../config'
-import content from '../content/content.json'
-
-const QUERY = `query ContentQuery($relativePath: String!) {
-  siteContent(relativePath: $relativePath) {
-    site { businessName phone phoneHref email hours siteUrl }
-    hero { badge headline headlineAccent sub }
-    services { title desc features }
-    howItWorks { title desc }
-    whyUs { title desc }
-  }
-}`
 
 const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',
@@ -36,13 +25,7 @@ const LOCAL_BUSINESS_SCHEMA = {
 }
 
 export default function Home() {
-  const { data } = useTina({
-    query: QUERY,
-    variables: { relativePath: 'content.json' },
-    data: { siteContent: content },
-  })
-
-  const { site, hero, services, howItWorks, whyUs } = data.siteContent
+  const { site } = useContent()
 
   return (
     <>
@@ -51,10 +34,10 @@ export default function Home() {
         path="/"
         schema={LOCAL_BUSINESS_SCHEMA}
       />
-      <Hero hero={hero} phoneDisplay={site.phone} phoneHref={site.phoneHref} />
-      <Services services={services} phoneHref={site.phoneHref} />
-      <HowItWorks steps={howItWorks} />
-      <WhyChooseUs whyUs={whyUs} />
+      <Hero />
+      <Services />
+      <HowItWorks />
+      <WhyChooseUs />
       <ServiceAreaHighlight />
       <OrderOnline />
       <ContactHighlight />

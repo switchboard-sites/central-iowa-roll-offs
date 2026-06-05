@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
-import { PHONE_DISPLAY, PHONE_HREF, EMAIL_DISPLAY, EMAIL_HREF, BUSINESS_NAME, TAGLINE } from '../config'
+import { tinaField } from 'tinacms/dist/react'
+import { useContent } from '../context/ContentContext'
 
 const year = new Date().getFullYear()
 
 export default function Footer() {
+  const { site, footer } = useContent()
+
   return (
     <footer className="footer">
       <div className="container">
@@ -18,14 +21,11 @@ export default function Footer() {
                 height="64"
               />
               <div className="footer__logo-text">
-                <strong>{BUSINESS_NAME}</strong>
-                <span>{TAGLINE}</span>
+                <strong data-tina-field={tinaField(site, 'businessName')}>{site.businessName}</strong>
+                <span data-tina-field={tinaField(site, 'tagline')}>{site.tagline}</span>
               </div>
             </div>
-            <p>
-              Locally owned and operated dumpster and dump trailer rental company serving
-              Des Moines and the surrounding Central Iowa communities.
-            </p>
+            <p data-tina-field={tinaField(footer, 'brandDesc')}>{footer.brandDesc}</p>
           </div>
 
           <div>
@@ -41,17 +41,17 @@ export default function Footer() {
           <div>
             <p className="footer__heading">Contact</p>
             <p className="footer__contact-item">
-              <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>
+              <a href={site.phoneHref} data-tina-field={tinaField(site, 'phone')}>{site.phone}</a>
             </p>
             <p className="footer__contact-item">
-              <a href={EMAIL_HREF}>{EMAIL_DISPLAY}</a>
+              <a href={`mailto:${site.email}`} data-tina-field={tinaField(site, 'email')}>{site.email}</a>
             </p>
             <p className="footer__contact-item">Central Iowa</p>
           </div>
         </div>
 
         <div className="footer__bottom">
-          <span>&copy; {year} {BUSINESS_NAME}. All rights reserved.</span>
+          <span>&copy; {year} {site.businessName}. All rights reserved.</span>
           <span>Proudly serving Central Iowa</span>
         </div>
       </div>

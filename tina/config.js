@@ -32,6 +32,7 @@ export default defineConfig({
             label: 'Site Info',
             fields: [
               { type: 'string', name: 'businessName', label: 'Business Name' },
+              { type: 'string', name: 'tagline', label: 'Tagline' },
               { type: 'string', name: 'phone', label: 'Phone (e.g. (515) 230-7250)' },
               { type: 'string', name: 'phoneHref', label: 'Phone link (e.g. tel:+15152307250)' },
               { type: 'string', name: 'email', label: 'Email' },
@@ -79,6 +80,80 @@ export default defineConfig({
             fields: [
               { type: 'string', name: 'title', label: 'Title' },
               { type: 'string', name: 'desc', label: 'Description', ui: { component: 'textarea' } },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'serviceAreaHighlight',
+            label: 'Service Area Highlight (Home Page)',
+            fields: [
+              { type: 'string', name: 'subtitle', label: 'Subtitle', ui: { component: 'textarea' } },
+              { type: 'string', name: 'cities', label: 'Cities', list: true },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'serviceAreaPage',
+            label: 'Service Area Page',
+            fields: [
+              { type: 'string', name: 'heroLabel', label: 'Hero Label' },
+              { type: 'string', name: 'heroTitle', label: 'Hero Title' },
+              { type: 'string', name: 'heroText', label: 'Hero Text', ui: { component: 'textarea' } },
+              {
+                type: 'object',
+                name: 'regions',
+                label: 'Regions',
+                list: true,
+                fields: [
+                  { type: 'string', name: 'name', label: 'Region Name' },
+                  { type: 'string', name: 'cities', label: 'Cities', list: true },
+                ],
+              },
+              { type: 'string', name: 'calloutTitle', label: 'Callout Title' },
+              { type: 'string', name: 'calloutText', label: 'Callout Text', ui: { component: 'textarea' } },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'contactHighlight',
+            label: 'Contact Highlight (Home Page)',
+            fields: [
+              { type: 'string', name: 'headline', label: 'Headline' },
+              { type: 'string', name: 'sub', label: 'Sub-headline', ui: { component: 'textarea' } },
+              { type: 'string', name: 'emailResponseNote', label: 'Email Response Note' },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'orderOnline',
+            label: 'Order Online Section',
+            fields: [
+              { type: 'string', name: 'label', label: 'Section Label' },
+              { type: 'string', name: 'title', label: 'Title' },
+              { type: 'string', name: 'sub', label: 'Subtitle', ui: { component: 'textarea' } },
+              { type: 'string', name: 'placeholderTitle', label: 'Placeholder Title' },
+              { type: 'string', name: 'placeholderText', label: 'Placeholder Text', ui: { component: 'textarea' } },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'contactPage',
+            label: 'Contact Page',
+            fields: [
+              { type: 'string', name: 'heroLabel', label: 'Hero Label' },
+              { type: 'string', name: 'heroTitle', label: 'Hero Title' },
+              { type: 'string', name: 'heroText', label: 'Hero Text', ui: { component: 'textarea' } },
+              { type: 'string', name: 'phoneNote', label: 'Phone Note' },
+              { type: 'string', name: 'emailResponseNote', label: 'Email Response Note' },
+              { type: 'string', name: 'hoursNote', label: 'Hours Note' },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'footer',
+            label: 'Footer',
+            fields: [
+              { type: 'string', name: 'brandDesc', label: 'Brand Description', ui: { component: 'textarea' } },
             ],
           },
         ],
