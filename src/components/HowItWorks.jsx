@@ -1,6 +1,6 @@
-import content from '../content/content.json'
+import { tinaField } from 'tinacms/dist/react'
 
-export default function HowItWorks() {
+export default function HowItWorks({ steps }) {
   return (
     <section className="section section--gray" id="how-it-works" aria-labelledby="how-heading">
       <div className="container">
@@ -12,11 +12,11 @@ export default function HowItWorks() {
         </p>
 
         <div className="how-it-works__steps">
-          {content.howItWorks.map((s, i) => (
+          {steps.map((s, i) => (
             <div className="step" key={s.title}>
               <div className="step__number" aria-hidden="true">{i + 1}</div>
-              <h3 className="step__title">{s.title}</h3>
-              <p className="step__desc">{s.desc}</p>
+              <h3 className="step__title" data-tina-field={tinaField(s, 'title')}>{s.title}</h3>
+              <p className="step__desc" data-tina-field={tinaField(s, 'desc')}>{s.desc}</p>
             </div>
           ))}
         </div>

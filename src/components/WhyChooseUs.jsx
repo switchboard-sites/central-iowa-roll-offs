@@ -1,4 +1,4 @@
-import content from '../content/content.json'
+import { tinaField } from 'tinacms/dist/react'
 
 const ICONS = [
   <svg key="delivery" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -24,7 +24,7 @@ const ICONS = [
   </svg>,
 ]
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs({ whyUs }) {
   return (
     <section className="section" id="why-us" aria-labelledby="why-heading">
       <div className="container">
@@ -36,11 +36,11 @@ export default function WhyChooseUs() {
         </p>
 
         <div className="why__grid">
-          {content.whyUs.map((f, i) => (
+          {whyUs.map((f, i) => (
             <div className="feature-card" key={f.title}>
               <div className="feature-card__icon">{ICONS[i]}</div>
-              <h3 className="feature-card__title">{f.title}</h3>
-              <p className="feature-card__desc">{f.desc}</p>
+              <h3 className="feature-card__title" data-tina-field={tinaField(f, 'title')}>{f.title}</h3>
+              <p className="feature-card__desc" data-tina-field={tinaField(f, 'desc')}>{f.desc}</p>
             </div>
           ))}
         </div>
